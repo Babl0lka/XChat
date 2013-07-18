@@ -1,5 +1,6 @@
 /* X-Chat
  * Copyright (C) 1998 Peter Zelezny.
+ * Copyright (C) 2013 Th0masR0ss
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,7 +52,7 @@ void
 menu_about (GtkWidget * wid, gpointer sess)
 {
 	char buf[512];
-	const gchar *author[] = { "Peter Zelezny <zed@xchat.org>", 0 };
+	const gchar *author[] = { "Th0masR0ss <Th0m4sR0ss@gmail.com>", 0 };
 
 	(snprintf) (buf, sizeof (buf),
 				 "An IRC Client for UNIX.\n\n"
@@ -66,7 +67,7 @@ menu_about (GtkWidget * wid, gpointer sess)
 #endif
 
 	gtk_widget_show (gnome_about_new ("X-Chat", PACKAGE_VERSION,
-							"(C) 1998-2005 Peter Zelezny", author, buf, 0));
+							"(C) 1998-2005 Peter Zelezny\n(C) 2013 Th0masR0ss", author, buf, 0));
 }
 
 #else
@@ -127,6 +128,7 @@ menu_about (GtkWidget * wid, gpointer sess)
 				"<b>Renderer</b>: %s\n"
 #endif
 				"<b>Compiled</b>: "__DATE__"\n\n"
+				/* leaving the following for now, don't know what it is yet.*/
 				"<small>\302\251 1998-2010 Peter \305\275elezn\303\275 &lt;zed@xchat.org></small>",
 					_("A multiplatform IRC Client"),
 					get_cpu_str(),
