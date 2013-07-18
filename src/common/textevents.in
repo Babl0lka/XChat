@@ -103,7 +103,7 @@ n4
 Channel Mode Generic
 XP_TE_CHANMODEGEN
 pevt_chanmodegen_help
-%C22*%O$t$1 sets mode $2$3 $4
+%C22*%O$t$1 changed mode $2$3 $4
 4
 
 Channel Modes
@@ -631,7 +631,7 @@ pevt_quit_help
 Raw Modes
 XP_TE_RAWMODES
 pevt_rawmodes_help
-%C22*%O$t$1 sets modes%B %C30[%O$2%B%C30]
+%C22*%O$t$1 changed mode%B %C30[%O$2%B%C30]
 2
 
 Receive Wallops
