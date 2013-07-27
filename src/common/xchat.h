@@ -1,10 +1,6 @@
 #include "../../config.h"
 
-#include <glib/gslist.h>
-#include <glib/glist.h>
-#include <glib/gutils.h>
-#include <glib/giochannel.h>
-#include <glib/gstrfuncs.h>
+#include <glib.h>
 #include <time.h>			/* need time_t */
 
 #ifndef XCHAT_H
@@ -229,6 +225,7 @@ struct xchatprefs
 	unsigned int fastdccsend;
 	unsigned int dcc_send_fillspaces;
 	unsigned int dcc_remove;
+	unsigned int slist_fav;
 	unsigned int slist_skip;
 	unsigned int slist_select;
 	unsigned int filterbeep;
@@ -303,6 +300,8 @@ struct xchatprefs
 	unsigned int msg_number_limit;	/*same deal */
 	unsigned int msg_time_limit;
 
+	unsigned int url_grabber;
+	unsigned int url_grabber_limit;
 	/* Tells us if we need to save, only when they've been edited.
 		This is so that we continue using internal defaults (which can
 		change in the next release) until the user edits them. */
@@ -438,6 +437,7 @@ typedef struct server
 	int sok;					/* is equal to sok4 or sok6 (the one we are using) */
 	int sok4;					/* tcp4 socket */
 	int sok6;					/* tcp6 socket */
+	int proxy_type;
 	int proxy_sok;				/* Additional information for MS Proxy beast */
 	int proxy_sok4;
 	int proxy_sok6;
@@ -562,12 +562,7 @@ struct popup
 /* CL: get a random int in the range [0..n-1]. DON'T use rand() % n, it gives terrible results. */
 #define RAND_INT(n) ((int)(rand() / (RAND_MAX + 1.0) * (n)))
 
-#if defined(WIN32) && GLIB_CHECK_VERSION(2,4,0)
 #define xchat_filename_from_utf8 g_locale_from_utf8
 #define xchat_filename_to_utf8 g_locale_to_utf8
-#else
-#define xchat_filename_from_utf8 g_filename_from_utf8
-#define xchat_filename_to_utf8 g_filename_to_utf8
-#endif
 
 #endif
